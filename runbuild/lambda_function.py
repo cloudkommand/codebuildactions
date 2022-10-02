@@ -39,7 +39,7 @@ def lambda_handler(event, context):
         if not project_name:
             eh.add_log("No Project Specified", cdef, is_error=True)
             eh.perm_error("project_name required", 0)
-        trust_level = cdef.get("trust_level")
+        trust_level = cdef.get("trust_level") or "zero"
 
         secondary_artifacts_override = cdef.get("secondary_artifacts_override")
         artifacts_override = cdef.get("artifacts_override") or None

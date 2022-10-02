@@ -20,8 +20,7 @@
                 "properties": {
                     "project_name": {
                         "type": "string",
-                        "description": "The name of the codebuild project to initiate",
-                        "required": true
+                        "description": "The name of the codebuild project to initiate"
                     },
                     "artifacts_override": {
                         "type": "object",
@@ -29,7 +28,7 @@
                     },
                     "secondary_artifacts_override": {
                         "type": "array",
-                        "description": "Commands installing required libraries/packages before a build is run.",
+                        "description": "Commands installing required libraries/packages before a build is run."
                     },
                     "source_version": {
                         "type": "array",
@@ -41,7 +40,8 @@
                         "type": "array",
                         "description": "The environment variables to override in the codebuild project."
                     }
-                }
+                },
+                "required": ["project_name"]
             },
             "props": {
                 "id": {
