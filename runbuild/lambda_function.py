@@ -49,10 +49,7 @@ def lambda_handler(event, context):
         if event.get("pass_back_data"):
             print(f"pass_back_data found")
         elif event.get("op") == "upsert":
-            if trust_level == "full":
-                eh.add_op("start_build")
-            else:
-                eh.add_op("get_codebuild_project")
+            eh.add_op("start_build")
 
         elif event.get("op") == "delete":
             pass
