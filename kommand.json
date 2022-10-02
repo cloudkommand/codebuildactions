@@ -1,0 +1,62 @@
+{
+    "components": {
+        "project": {
+            "type": "ext",
+            "policy": {
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Sid": "Vis",
+                    "Effect": "Allow",
+                    "Action": [
+                        "iam:PassRole",
+                        "codebuild:StartBuild",
+                        "codebuild:BatchGetBuilds"
+                    ],
+                    "Resource": "*"
+                }]
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "The name of the codebuild project to initiate"
+                    },
+                    "artifacts_override": {
+                        "type": "object",
+                        "description": "The dictionary of runtime versions you need to build your app. If not set, this will default to {\"nodejs\": 10}. See a list of possible values here: https://docs.aws.amazon.com/codebuild/latest/userguide/runtime-versions.html"
+                    },
+                    "secondary_artifacts_override": {
+                        "type": "array",
+                        "description": "Commands installing required libraries/packages before a build is run."
+                    },
+                    "source_version": {
+                        "type": "array",
+                        "description": "The size of the codebuild container. Can speed up builds if you expect them to take a long time.",
+                        "enum": ["small", "medium", "large", "2xlarge"],
+                        "default": "large"
+                    },
+                    "environment_variables_override": {
+                        "type": "array",
+                        "description": "The environment variables to override in the codebuild project."
+                    }
+                },
+                "required": ["project_name"]
+            },
+            "props": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the build"
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the build"
+                },
+                "number": {
+                    "type": "string",
+                    "description": "The build number of the codebuild project"
+                }
+            }
+        }
+    }
+}
