@@ -1,6 +1,6 @@
 {
     "components": {
-        "project": {
+        "runbuild": {
             "type": "ext",
             "policy": {
                 "Version": "2012-10-17",
