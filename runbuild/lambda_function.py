@@ -23,17 +23,10 @@ codebuild = boto3.client('codebuild')
 def lambda_handler(event, context):
     try:
         print(f"event = {event}")
-        # account_number = account_context(context)['number']
-        # region = account_context(context)['region']
-        eh.capture_event(event)
-        bucket = event.get("bucket")
-        object_name = event.get("s3_object_name")
 
-        prev_state = event.get("prev_state") or {}
-        project_code = event.get("project_code")
-        repo_id = event.get("repo_id")
+        eh.capture_event(event)
+
         cdef = event.get("component_def")
-        cname = event.get("component_name")
 
         project_name = cdef.get("project_name")
         if not project_name:
