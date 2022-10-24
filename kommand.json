@@ -24,21 +24,19 @@
                     },
                     "artifacts_override": {
                         "type": "object",
-                        "description": "The dictionary of runtime versions you need to build your app. If not set, this will default to {\"nodejs\": 10}. See a list of possible values here: https://docs.aws.amazon.com/codebuild/latest/userguide/runtime-versions.html"
+                        "description": "An override object for the artifacts of the build. See https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html"
                     },
                     "secondary_artifacts_override": {
                         "type": "array",
-                        "description": "Commands installing required libraries/packages before a build is run."
+                        "description": "An override object for the secondary artifacts of the build. See https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html"
                     },
                     "source_version": {
-                        "type": "array",
-                        "description": "The size of the codebuild container. Can speed up builds if you expect them to take a long time.",
-                        "enum": ["small", "medium", "large", "2xlarge"],
-                        "default": "large"
+                        "type": "string",
+                        "description": "An identifier for the build input, to be used for this build only. See https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html"
                     },
                     "environment_variables_override": {
                         "type": "array",
-                        "description": "The environment variables to override in the codebuild project."
+                        "description": "The environment variables to override in the codebuild project. See https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartBuild.html for the format"
                     }
                 },
                 "required": ["project_name"]
