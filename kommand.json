@@ -8,7 +8,6 @@
                     "Sid": "Vis",
                     "Effect": "Allow",
                     "Action": [
-                        "iam:PassRole",
                         "codebuild:StartBuild",
                         "codebuild:BatchGetBuilds"
                     ],
