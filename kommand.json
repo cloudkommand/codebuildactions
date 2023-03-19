@@ -2,6 +2,10 @@
     "components": {
         "runbuild": {
             "type": "ext",
+            "displayname": "CK Run CodeBuild",
+            "description": "Runs a codebuild project",
+            "cloud": "AWS",
+            "ck_plugin_tier": 3,
             "policy": {
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -53,7 +57,17 @@
                     "type": "string",
                     "description": "The build number of the codebuild project"
                 }
-            }
+            },
+            "examples": [
+                {
+                    "displayname": "Run a Build",
+                    "notes": "",
+                    "definition": {
+                        "type": "&codebuildactions.runbuild",
+                        "project_name": "building-docker-images-1"
+                    }
+                }
+            ]
         }
     }
 }
